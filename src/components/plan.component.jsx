@@ -4,17 +4,18 @@ import moment from "moment";
 export default function Plan({ tasks , setTasksdata}) {
 	const planAnotherDay = (e) => {
 		const newDateObject = [];
-		  [...Array(Number(e.target.value)).keys()].map(dt => {
+
+		[...Array(Number(e.target.value)).keys()].map(dt => {
 			const nDate = (moment().add(dt+1, 'days').format('dddd, DD MMMM YYYY'));
-
 			newDateObject.push({date: nDate, lists:[]})
-		  })
+			return 1;
+		})
 
-		  console.log(newDateObject);
 		const newData = {
 			data: [...tasks, ...newDateObject],
 			lastModified: new Date().getTime()
 		}
+
 		setTasksdata(newData);
 	}
 	return (

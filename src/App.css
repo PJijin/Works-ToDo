@@ -118,6 +118,10 @@ li:hover .actions {
 .options {
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
+}
+.options a {
+	padding: 0 10px;
 }
 .App {
 	display: flex;

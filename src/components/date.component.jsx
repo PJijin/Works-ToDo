@@ -7,21 +7,19 @@ import List from './list.component';
 export default function DateComponent({ taskData, setTasksdata, tasks, index }) {
     const [dateTasks, setDateTasks ] = useState( taskData.lists);
 
-    const onDrop = ({ addedIndex, removedIndex }) => {
-        [dateTasks[addedIndex], dateTasks[removedIndex]] = [dateTasks[removedIndex], dateTasks[addedIndex]];
-
-        updateTaskData(dateTasks);
-    };
-
-
     const updateTaskData = (newFilteredTask) => {
-        tasks[index].lists =   newFilteredTask;
-          setTasksdata({
+        tasks[index].lists = newFilteredTask;
+        setTasksdata({
              data: tasks,
              lastModified: new Date().getTime()
-         });
+        });
         setDateTasks(newFilteredTask);
     }
+
+    const onDrop = ({ addedIndex, removedIndex }) => {
+        [dateTasks[addedIndex], dateTasks[removedIndex]] = [dateTasks[removedIndex], dateTasks[addedIndex]];
+        updateTaskData(dateTasks);
+    };
 
     const removeListItem = (id) => {
         const newFilteredTask = dateTasks.filter(task => task.id !== id)
@@ -29,17 +27,16 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
     }
 
     const editTodo = (id,message) => {
-        dateTasks.map(tsk => {
+        dateTasks.forEach(tsk => {
             if(tsk.id === id){
                 tsk.message = message;
             }
-        });
-       return updateTaskData(dateTasks);
+         });
+        updateTaskData(dateTasks);
     }
 
-    const clearListData = () => {
-        updateTaskData([]);
-    }
+    const clearListData = () =>  updateTaskData([]);
+
 
     const addNewList = () => {
         const newFilteredTask = [...dateTasks, {
@@ -50,16 +47,14 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
        updateTaskData(newFilteredTask);
     }
 
-    const deleteDate = () => {
-      const newData =  tasks.filter(el => el.date !== taskData.date);
-       setTasksdata({
-             data: newData,
+    const deleteDate = () => setTasksdata({
+             data: tasks.filter(el => el.date !== taskData.date),
              lastModified: new Date().getTime()
-         });
-     }
+    });
 
-    const markAsComplete = (id,value) => {
-        dateTasks.map(task => {
+
+    const markAsComplete = (id) => {
+        dateTasks.forEach(task => {
             if(task.id === id){
                 task.completed = !task.completed;
             }
@@ -78,11 +73,9 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
                 <button>
                     <MinusSquare data-tip="Clear List" onClick={clearListData} size="14" />
                 </button>
-
             </div>
         </div>
-
-	<ul>
+    	<ul>
 					<Container onDrop={onDrop}>
 						{dateTasks.map(task => {
 							return (
@@ -99,6 +92,6 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
                           </button>
                         </li>
 					</Container>
-				</ul>
+		</ul>
     </div>;
 }

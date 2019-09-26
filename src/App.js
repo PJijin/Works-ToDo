@@ -21,7 +21,11 @@ const INITIAL_TASK = {
 	lastModified: null
 }
 
-function App() {
+const EmptyState = () => {
+	return <p className="center">Wow <img src="./assets/tada.svg" width="20px" alt="tada" /> You don't have any pending works <img src="./assets/clap.svg" width="20px" alt="clap" /></p>
+}
+
+const App = () => {
 	const [tasks, setTasks] = useLocalStorage('tasks',INITIAL_TASK);
 	const darkMode = useDarkMode(false);
 
@@ -30,16 +34,18 @@ function App() {
 	return (
 		<div className="App">
 			<div className="todo-lists">
+
 				<Options toggleMode={darkMode.toggle} currentMode={darkMode} />
+
 				<Plan tasks={tasks.data} setTasksdata={setTasksdata}  />
+
 				{tasks.data.map((task,index) => {
 					return <Date tasks={tasks.data} key={task.tid} taskData={task} setTasksdata={setTasksdata} index={index} />
 				})}
 
-				{tasks.data.length === 0 && <p className="center">Wow <img src="./assets/tada.svg" width="20px" alt="tada" /> You don't have any pending works <img src="./assets/clap.svg" width="20px" alt="clap" /></p>}
+				{tasks.data.length === 0 && <EmptyState />}
  			</div>
 			 <ReactTooltip  place="bottom" type="dark" effect="solid" />
-
 		</div>
 	);
 }
