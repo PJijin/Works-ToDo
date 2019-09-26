@@ -151,3 +151,20 @@ li:hover .actions {
 	font-size: 12px;
 	color: var(--date);
 }
+
+@media screen and (max-width: 600px) {
+	.todo-lists {
+		padding: 2rem;
+	}
+
+	.list input[type='text'] {
+		width: unset;
+	}
+
+	.planner {
+		margin: 60px 0;
+	}
+	.date-style {
+		font-size: 15px;
+	}
+}
