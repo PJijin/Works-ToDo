@@ -24,7 +24,9 @@ body {
 ul {
 	padding: 0;
 }
-
+a {
+	color: var(--text);
+}
 li {
 	list-style-type: none;
 	border-radius: 5px;
@@ -122,6 +124,7 @@ li:hover .actions {
 }
 .options a {
 	padding: 0 10px;
+	color: var(--text);
 }
 .App {
 	display: flex;
