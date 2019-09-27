@@ -4,6 +4,9 @@ body.dark-mode {
 	--text: #fff;
 	--date: rgb(135, 153, 167);
 	--btn-icon-hover: #fff;
+
+	--dark-bg: url('');
+	--dark-shadow: rgba(28, 28, 28, 0.8) 0px 0px 0px 2000px inset;
 }
 body.light-mode {
 	--bg: #fffaf4;
@@ -11,6 +14,9 @@ body.light-mode {
 	--text: #212121;
 	--date: #35305a;
 	--btn-icon-hover: #2d3748;
+
+	--dark-bg: url('');
+	--dark-shadow: rgba(255, 255, 255, 0.95) 0px 0px 0px 2000px inset;
 }
 
 body {
@@ -19,6 +25,10 @@ body {
 	background: var(--bg);
 	color: var(--text);
 	font-family: 'Quicksand', sans-serif;
+
+	/* box-shadow: var(--dark-shadow); */
+	/* background: var(--dark-bg) no-repeat; */
+	background-size: cover;
 }
 
 ul {
@@ -75,6 +85,7 @@ li:hover .actions {
 	background: transparent;
 	width: 500px;
 	color: var(--text);
+	padding: 0.3rem;
 }
 
 .completed input[type='text'] {
@@ -130,7 +141,7 @@ li:hover .actions {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	margin-top: 20px;
+	height: 100vh;
 }
 
 .todo-lists {
@@ -172,6 +183,34 @@ li:hover .actions {
 		margin: 60px 0;
 	}
 	.date-style {
-		font-size: 15px;
+		font-size: 14px;
+	}
+
+	.options a {
+		display: none;
+	}
+
+	.date-todo .new-list {
+		visibility: visible;
+	}
+
+	li .actions {
+		display: block;
+	}
+
+	.list input[type='text'] {
+		font-size: 12px;
+	}
+
+	li div:nth-child(1) {
+		display: flex;
+	}
+
+	.center {
+		display: inline;
+	}
+
+	.date-todo .actions {
+		visibility: visible;
 	}
 }
