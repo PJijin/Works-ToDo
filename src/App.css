@@ -25,6 +25,7 @@ body {
 	background: var(--bg);
 	color: var(--text);
 	font-family: 'Quicksand', sans-serif;
+	scroll-behavior: smooth;
 
 	/* box-shadow: var(--dark-shadow); */
 	/* background: var(--dark-bg) no-repeat; */
