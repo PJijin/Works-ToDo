@@ -1,19 +1,20 @@
-import React from 'react';
+import React, { useState} from 'react';
+import { PlusCircle } from 'react-feather';
+
 import moment from 'moment';
 
 export default function Plan({ tasks, setTasksdata }) {
-	const lastDate = tasks.length !== 0 && tasks[tasks.length - 1].date;
-	console.log(lastDate);
-	const planAnotherDay = e => {
+	const [daysAdded, setDaysAdded] =  useState(1);
+
+
+ 	const planAnotherDay = e => {
 		const newDateObject = [];
 
-		[...Array(Number(e.target.value)).keys()].map(dt => {
-			const nDate = moment()
-				.add(dt + 1, 'days')
+ 			const nDate = moment()
+				.add( daysAdded, 'days')
 				.format('dddd, DD MMMM YYYY');
 			newDateObject.push({ date: nDate, lists: [] });
-			return 1;
-		});
+			setDaysAdded(daysAdded+1);
 
 		const newData = {
 			data: [...tasks, ...newDateObject],
@@ -25,8 +26,8 @@ export default function Plan({ tasks, setTasksdata }) {
 	return (
 		<div className="planner">
 			Plan next
-			<input onChange={planAnotherDay} type="number" className="plan-days" placeholder="1" min="0" max="10" />
-			day(s)
+			<PlusCircle data-tip="Add Day" className="add-circle" onClick={planAnotherDay} />
+			day
 		</div>
 	);
 }

@@ -132,6 +132,14 @@ li:hover .actions {
 	color: var(--date);
 }
 
+.add-circle {
+	padding: 0px 10px;
+	cursor: pointer;
+}
+
+.add-circle:hover {
+	color: #777;
+}
 .completed {
 	text-decoration: line-through;
 }

@@ -101,7 +101,7 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
 						);
 					})}
 
-					{dateTasks.length === 0 && <li className="empty-list">You have not added any items</li>}
+					{dateTasks.length === 0 && <li className="empty-list" onClick={addNewList}>You have not added any items</li>}
 					<li className="new-list">
 						<button>
 							<Plus data-tip="New Task" onClick={addNewList} size="12" />
