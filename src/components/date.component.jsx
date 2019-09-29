@@ -65,6 +65,12 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
 		updateTaskData(dateTasks);
 	};
 
+	const onEnterNewField = (e) => {
+		if (e.key === 'Enter') {
+			addNewList();
+		}
+	}
+
 	return (
 		<div className="date-todo">
 			<div className="date-style">
@@ -89,6 +95,7 @@ export default function DateComponent({ taskData, setTasksdata, tasks, index }) 
 									removeListItem={removeListItem}
 									editTodo={editTodo}
 									markAsComplete={markAsComplete}
+									onEnterNewField={onEnterNewField}
 								/>
 							</Draggable>
 						);

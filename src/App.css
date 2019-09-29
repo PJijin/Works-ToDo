@@ -5,7 +5,7 @@ body.dark-mode {
 	--date: rgb(135, 153, 167);
 	--btn-icon-hover: #fff;
 
-	--dark-bg: url('');
+	--dark-bg: '';
 	--dark-shadow: rgba(28, 28, 28, 0.8) 0px 0px 0px 2000px inset;
 }
 body.light-mode {
@@ -15,7 +15,7 @@ body.light-mode {
 	--date: #35305a;
 	--btn-icon-hover: #2d3748;
 
-	--dark-bg: url('');
+	--dark-bg: '';
 	--dark-shadow: rgba(255, 255, 255, 0.95) 0px 0px 0px 2000px inset;
 }
 
@@ -69,6 +69,13 @@ li .actions {
 
 li:hover .actions {
 	display: block;
+}
+
+.App {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 50px;
 }
 
 .center {
@@ -137,12 +144,6 @@ li:hover .actions {
 .options a {
 	padding: 0 10px;
 	color: var(--text);
-}
-.App {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
 }
 
 .todo-lists {
@@ -213,5 +214,9 @@ li:hover .actions {
 
 	.date-todo .actions {
 		visibility: visible;
+	}
+
+	.App {
+		margin-top: unset;
 	}
 }
