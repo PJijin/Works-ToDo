@@ -1,6 +1,7 @@
 {
 	"short_name": "Works ToDo",
 	"name": "Simple ToDo App to that helps to focus on your work",
+	"version": "1.0",
 	"icons": [
 		{
 			"src": "images/logo16.png",
